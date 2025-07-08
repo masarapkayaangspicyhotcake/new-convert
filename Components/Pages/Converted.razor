@@ -2,30 +2,97 @@
 @rendermode InteractiveServer
 @inject NavigationManager NavigationManager
 
-<h3>Conversion Result</h3>
+<PageTitle>Conversion Result - Currency Converter</PageTitle>
 
-@if (isLoaded)
-{
-    <p>@Amount @BaseCurrency = @Rate @TargetCurrency</p>
-    <p>Date: @Date.ToShortDateString()</p>
-}
-else
-{
-    <p>Loading result...</p>
-}
+<HeadContent>
+    <link href="~/css/convert.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</HeadContent>
+
+<div class="result-container">
+    <div class="result-header">
+        <h3>Conversion Complete!</h3>
+        <p>Your historical currency conversion result</p>
+    </div>
+
+    @if (isLoaded)
+    {
+        <div class="result-card">
+            <div class="conversion-display">
+                <div class="conversion-amount">
+                    @Amount.ToString("N2") @BaseCurrency
+                    <span class="equals-symbol">=</span>
+                    @Rate.ToString("N2") @TargetCurrency
+                </div>
+            </div>
+
+            <div class="conversion-details">
+                <div class="conversion-row">
+                    <span class="conversion-label">Original Amount:</span>
+                    <span class="conversion-value">@Amount.ToString("N2") @BaseCurrency</span>
+                </div>
+                
+                <div class="conversion-row">
+                    <span class="conversion-label">Converted Amount:</span>
+                    <span class="conversion-value">@Rate.ToString("N2") @TargetCurrency</span>
+                </div>
+                
+                <div class="conversion-row">
+                    <span class="conversion-label">Exchange Rate:</span>
+                    <span class="conversion-value">1 @BaseCurrency = @((Rate / Amount).ToString("N4")) @TargetCurrency</span>
+                </div>
+                
+                <div class="conversion-row">
+                    <span class="conversion-label">Conversion Date:</span>
+                    <span class="conversion-value">@Date.ToString("MMMM dd, yyyy")</span>
+                </div>
+            </div>
+
+            <div class="date-display">
+                <i class="fas fa-calendar-alt"></i>
+                Historical rate from @Date.ToString("dddd, MMMM dd, yyyy")
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn-action" @onclick="ConvertAgain">
+                    <i class="fas fa-redo-alt"></i>
+                    Convert Again
+                </button>
+                <a href="/" class="btn-action btn-secondary">
+                    <i class="fas fa-home"></i>
+                    Back to Home
+                </a>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="loading-container">
+            <div class="spinner"></div>
+            <p>Loading your conversion result...</p>
+        </div>
+    }
+</div>
 
 @code {
     [Parameter, SupplyParameterFromQuery] public decimal Amount { get; set; }
     [Parameter, SupplyParameterFromQuery] public decimal Rate { get; set; }
     [Parameter, SupplyParameterFromQuery(Name = "base")] public string BaseCurrency { get; set; } = "";
     [Parameter, SupplyParameterFromQuery(Name = "target")] public string TargetCurrency { get; set; } = "";
-
     [Parameter, SupplyParameterFromQuery] public DateTime Date { get; set; }
 
     private bool isLoaded;
 
-    protected override void OnParametersSet()
+    protected override async Task OnInitializedAsync()
     {
+        // Simulate loading delay for better UX
+        await Task.Delay(800);
         isLoaded = true;
+    }
+
+    private void ConvertAgain()
+    {
+        NavigationManager.NavigateTo("/convert");
     }
 }

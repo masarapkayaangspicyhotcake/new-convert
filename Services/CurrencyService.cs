@@ -9,7 +9,7 @@ public class CurrencyService
 {
     private readonly HttpClient _http;
     private readonly ILogger<CurrencyService> _logger;
-    private const string list_key = "441fd97157a1a495ff9b711ccadd38d4";
+    private const string list_key = "9ba2089853ab2582cd977c971469d2aa";
     private const string conversion_key = "811ecfc3cf3c1fefbd2794b513fd5266";
 
     public CurrencyService(HttpClient http, ILogger<CurrencyService> logger)

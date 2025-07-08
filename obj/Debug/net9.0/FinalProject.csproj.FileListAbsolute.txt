@@ -93,6 +93,7 @@ C:\xampp\htdocs\sherard\new-convert\obj\Debug\net9.0\FinalProject.AssemblyInfoIn
 C:\xampp\htdocs\sherard\new-convert\obj\Debug\net9.0\FinalProject.AssemblyInfo.cs
 C:\xampp\htdocs\sherard\new-convert\obj\Debug\net9.0\FinalProject.csproj.CoreCompileInputs.cache
 C:\xampp\htdocs\sherard\new-convert\obj\Debug\net9.0\FinalProject.MvcApplicationPartsAssemblyInfo.cache
+C:\xampp\htdocs\sherard\new-convert\obj\Debug\net9.0\FinalProject.sourcelink.json
 C:\xampp\htdocs\sherard\new-convert\obj\Debug\net9.0\rjimswa.dswa.cache.json
 C:\xampp\htdocs\sherard\new-convert\obj\Debug\net9.0\rjsmrazor.dswa.cache.json
 C:\xampp\htdocs\sherard\new-convert\obj\Debug\net9.0\rjsmcshtml.dswa.cache.json
@@ -158,4 +159,3 @@ C:\xampp\htdocs\sherard\new-convert\obj\Debug\net9.0\refint\FinalProject.dll
 C:\xampp\htdocs\sherard\new-convert\obj\Debug\net9.0\FinalProject.pdb
 C:\xampp\htdocs\sherard\new-convert\obj\Debug\net9.0\FinalProject.genruntimeconfig.cache
 C:\xampp\htdocs\sherard\new-convert\obj\Debug\net9.0\ref\FinalProject.dll
-C:\xampp\htdocs\sherard\new-convert\obj\Debug\net9.0\FinalProject.sourcelink.json
