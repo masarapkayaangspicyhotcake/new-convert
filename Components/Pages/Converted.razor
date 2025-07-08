@@ -1,0 +1,31 @@
+@page "/converted"
+@rendermode InteractiveServer
+@inject NavigationManager NavigationManager
+
+<h3>Conversion Result</h3>
+
+@if (isLoaded)
+{
+    <p>@Amount @BaseCurrency = @Rate @TargetCurrency</p>
+    <p>Date: @Date.ToShortDateString()</p>
+}
+else
+{
+    <p>Loading result...</p>
+}
+
+@code {
+    [Parameter, SupplyParameterFromQuery] public decimal Amount { get; set; }
+    [Parameter, SupplyParameterFromQuery] public decimal Rate { get; set; }
+    [Parameter, SupplyParameterFromQuery(Name = "base")] public string BaseCurrency { get; set; } = "";
+    [Parameter, SupplyParameterFromQuery(Name = "target")] public string TargetCurrency { get; set; } = "";
+
+    [Parameter, SupplyParameterFromQuery] public DateTime Date { get; set; }
+
+    private bool isLoaded;
+
+    protected override void OnParametersSet()
+    {
+        isLoaded = true;
+    }
+}

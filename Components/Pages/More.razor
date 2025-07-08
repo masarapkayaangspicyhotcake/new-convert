@@ -1,0 +1,430 @@
+@page "/more"
+<PageTitle>About</PageTitle>
+
+<style>
+    body{
+        background-color: rgb(233, 234, 232);
+    }
+    .countries {
+        margin-top: 5%;
+        margin-bottom: 10%;
+    }
+
+    .country {
+        font-size: auto;
+    }
+
+    .flags {
+        margin-top: 3%;
+    }
+
+    .one {
+        border: 2px solid #ddd;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        padding: 25px;
+        width: 32%;
+        border-radius: 15px;
+    }
+
+    .convert {
+        margin-top: 15px; 
+        padding-top: 15px;
+        border-top: 1px dashed #373333;
+        text-align: center; 
+    }
+    .container {
+    max-width: 1200px;
+    margin-top: -10%;
+    padding: 20px;
+}
+
+.currency-conversions {
+    margin-top: 10%;
+    padding: 60px 0;
+ 
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #1f1f20;
+    font-weight: 700;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+.currency-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 0 20px;
+}
+
+.currency-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e0e0e0;
+}
+
+.currency-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: #3498db;
+}
+
+.flag-container {
+    width: 80px;
+    height: 50px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.flag-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+.currency-info {
+    margin-bottom: 15px;
+}
+
+.country-name {
+    font-size: 1.3rem;
+    margin: 0 0 10px 0;
+    color: #2c3e50;
+}
+
+.currency-detail {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 8px;
+}
+
+.currency-code {
+    background: #3498db;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.currency-symbol {
+    font-size: 1.4rem;
+    color: #2c3e50;
+}
+
+.currency-name {
+    margin: 0;
+    color: #7f8c8d;
+    font-size: 0.95rem;
+}
+
+.exchange-rate {
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px dashed #e0e0e0;
+}
+
+.rate-value {
+    display: block;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-bottom: 5px;
+}
+
+.conversion-example {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #27ae60;
+}
+
+@@media (max-width: 768px) {
+    .currency-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+@@media (max-width: 480px) {
+    .currency-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .currency-card {
+        padding: 15px;
+    }
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+}
+.button-link {
+    font-size: 1.2rem;
+    padding: 12px 25px;
+    background-color: #14732a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button-link:hover {
+    background-color: #0f571f;
+    transform: scale(1.05);
+}
+</style>
+
+<body>
+    <section>
+        <div class="content">
+            <div class="title d-flex flex-column justify-content-center align-items-center text-center">
+                <h1 class="head fw-bold">About the system</h1>
+                <p class="about mt-3">
+                    Our system is a <strong>user-friendly Currency Converter</strong> web application designed to provide fast and accurate currency conversions. What sets it apart is its ability to access historical exchange rates, allowing users to <strong>select specific dates and view past currency values.</strong> This feature is especially useful for students, travelers, businesses, and anyone interested in financial data over time. The app is built to deliver real-time results with an intuitive interface, making currency conversion <strong>easy and efficient.</strong>
+                </p>
+            </div>
+
+               <section class="currency-conversions">
+    <div class="container">
+        <h1 class="section-title">Global Currency Guide</h1>
+        <p class="section-subtitle">Explore currencies from around the world</p>
+
+        <div class="currency-grid">
+            <div class="currency-card">
+                <div class="flag-container">
+                    <img src="https://flagcdn.com/w320/us.png" alt="USA Flag" class="flag-img">
+                </div>
+                <div class="currency-info">
+                    <h3 class="country-name">United States <p class="currency-name"> 
+                        <span class="currency-symbol fw-bold">$</span>
+                        United States Dollar</p></h3>
+                </div>
+                <div class="exchange-rate">
+                    <span class="rate-value">1 USD =</span>
+                    <div class="conversion-example">56.52 PHP</div>
+                </div>
+            </div>
+
+            <div class="currency-card">
+                <div class="flag-container">
+                    <img src="https://flagcdn.com/w320/ph.png" alt="Philippines Flag" class="flag-img">
+                </div>
+                <div class="currency-info">
+                    <h3 class="country-name">Philippines
+                    <p class="currency-name">
+                        <span class="currency-symbol fw-bold">₱</span>
+                        Philippine Peso</p>
+                    </h3>
+                </div>
+                <div class="exchange-rate">
+                    <span class="rate-value">1 PHP =</span>
+                    <div class="conversion-example">0.018 USD</div>
+                </div>
+            </div>
+
+            <div class="currency-card">
+                <div class="flag-container">
+                    <img src="https://flagcdn.com/w320/gb.png" alt="United Kingdom Flag" class="flag-img">
+                </div>
+                <div class="currency-info">
+                    <h3 class="country-name">United Kingdom<p class="currency-name">
+                        <span class="currency-symbol fw-bold">£</span>
+                        British Pound Sterling</p> </h3>
+                </div>
+                <div class="exchange-rate">
+                    <span class="rate-value">1 GBP =</span>
+                    <div class="conversion-example">1.28 USD</div>
+                </div>
+            </div>
+
+            <div class="currency-card">
+                <div class="flag-container">
+                    <img src="https://flagcdn.com/w320/jp.png" alt="Japan Flag" class="flag-img">
+                </div>
+                <div class="currency-info">
+                    <h3 class="country-name">Japan
+                    <p class="currency-name">
+                        <span class="currency-symbol fw-bold">¥</span>
+                        Japanese Yen</p>
+                    </h3>
+                </div>
+                <div class="exchange-rate">
+                    <span class="rate-value">1 JPY =</span>
+                    <div class="conversion-example">0.0069 USD</div>
+                </div>
+            </div>
+
+            <div class="currency-card">
+                <div class="flag-container">
+                    <img src="https://flagcdn.com/w320/ca.png" alt="Canada Flag" class="flag-img">
+                </div>
+                <div class="currency-info">
+                    <h3 class="country-name">Canada
+                    <p class="currency-name">
+                    <span class="currency-symbol fw-bold">$</span>
+                        Canadian Dollar</p>
+                    </h3>
+                </div>
+                <div class="exchange-rate">
+                    <span class="rate-value">1 CAD =</span>
+                    <div class="conversion-example">0.74 USD</div>
+                </div>
+            </div>
+
+            <div class="currency-card">
+                <div class="flag-container">
+                    <img src="https://flagcdn.com/w320/au.png" alt="Australia Flag" class="flag-img">
+                </div>
+                <div class="currency-info">
+                    <h3 class="country-name">Australia
+                    <p class="currency-name">
+                        <span class="currency-symbol fw-bold ">$</span>
+                        Australian Dollar</p>
+                    </h3>
+                </div>
+                <div class="exchange-rate">
+                    <span class="rate-value">1 AUD =</span>
+                    <div class="conversion-example">0.67 USD</div>
+                </div>
+            </div>
+
+            <div class="currency-card">
+                <div class="flag-container">
+                    <img src="https://flagcdn.com/w320/cn.png" alt="China Flag" class="flag-img">
+                </div>
+                <div class="currency-info">
+                    <h3 class="country-name">China
+                    <p class="currency-name">
+                        <span class="currency-symbol fw-bold">¥</span>
+                        Chinese Yuan (Renminbi)</p>
+                    </h3>
+                </div>
+                <div class="exchange-rate">
+                    <span class="rate-value">1 CNY =</span>
+                    <div class="conversion-example">0.14 USD</div>
+                </div>
+            </div>
+
+            <div class="currency-card">
+                <div class="flag-container">
+                    <img src="https://flagcdn.com/w320/in.png" alt="India Flag" class="flag-img">
+                </div>
+                <div class="currency-info">
+                    <h3 class="country-name">India
+                        <p class="currency-name">
+                            <span class="currency-symbol fw-bold">₹</span>
+                            Indian Rupee
+                        </p>
+                    </h3>
+                </div>
+                <div class="exchange-rate">
+                    <span class="rate-value">1 INR =</span>
+                    <div class="conversion-example">0.012 USD</div>
+                </div>
+            </div>
+
+
+            <div class="currency-card">
+                <div class="flag-container">
+                    <img src="https://flagcdn.com/w320/id.png" alt="Indonesia Flag" class="flag-img">
+                </div>
+                <div class="currency-info">
+                    <h3 class="country-name">Indonesia
+                        <p class="currency-name">
+                            <span class="currency-symbol fw-bold">Rp</span>
+                            Indonesian Rupiah
+                        </p>
+                    </h3>
+                </div>
+                <div class="exchange-rate">
+                    <span class="rate-value">1 IDR =</span>
+                    <div class="conversion-example">0.000061 USD</div>
+                </div>
+            </div>
+
+            <div class="currency-card">
+                <div class="flag-container">
+                    <img src="https://flagcdn.com/w320/kr.png" alt="South Korea Flag" class="flag-img">
+                </div>
+                <div class="currency-info">
+                    <h3 class="country-name">South Korea
+                        <p class="currency-name">
+                            <span class="currency-symbol fw-bold">₩</span>
+                            South Korean Won
+                        </p>
+                    </h3>
+                </div>
+                <div class="exchange-rate">
+                    <span class="rate-value">1 KRW =</span>
+                    <div class="conversion-example">0.00072 USD</div>
+                </div>
+            </div>
+            <div class="currency-card">
+                <div class="flag-container">
+                    <img src="https://flagcdn.com/w320/th.png" alt="Thailand Flag" class="flag-img">
+                </div>
+                <div class="currency-info">
+                    <h3 class="country-name">Thailand
+                        <p class="currency-name">
+                            <span class="currency-symbol fw-bold">฿</span>
+                            Thai Baht
+                        </p>
+                    </h3>
+                </div>
+                <div class="exchange-rate">
+                    <span class="rate-value">1 THB =</span>
+                    <div class="conversion-example">0.027 USD</div>
+                </div>
+            </div>
+            <div class="currency-card">
+                <div class="flag-container">
+                    <img src="https://flagcdn.com/w320/eu.png" alt="European Union Flag" class="flag-img">
+                </div>
+                <div class="currency-info">
+                    <h3 class="country-name">European Union
+                        <p class="currency-name">
+                            <span class="currency-symbol fw-bold">€</span>
+                            Euro
+                        </p>
+                    </h3>
+                </div>
+                <div class="exchange-rate">
+                    <span class="rate-value">1 EUR =</span>
+                    <div class="conversion-example">1.09 USD</div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+     <div class="center">
+        <a href="/convert" class="button-link ">Try converting now!</a>
+    </div>
+</section>
+        </div>
+    </section>
+</body>
