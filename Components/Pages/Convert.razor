@@ -137,6 +137,7 @@
         Logger.LogInformation("Submitted: {Amount} {From} to {To} on {Date}",
             Model?.Amount, Model?.BaseCurrency, Model?.TargetCurrency, Model?.Date);
 
+        // Clear previous validation message
         validationMessage = null;
         isSubmitting = true;
 
@@ -144,9 +145,10 @@
         {
             if (Model is not null)
             {
+                // ✅ Custom Validation Checks
                 if (!ValidateModel(Model))
                 {
-                    return;
+                    return; // Validation failed, error message already set
                 }
 
                 var result = await CurrencyService.GetHistoricalRateAsync(
@@ -179,30 +181,49 @@
         finally
         {
             isSubmitting = false;
-            StateHasChanged();
+            StateHasChanged(); // Force UI update
         }
     }
 
     private bool ValidateModel(ConversionModel model)
     {
+        // Negative or zero amount validation
         if (model.Amount <= 0)
         {
             validationMessage = "Amount must be greater than zero.";
             return false;
         }
 
+        @* // Future date validation
         if (model.Date > DateTime.Today)
         {
             validationMessage = "Date cannot be in the future.";
             return false;
         }
 
+        // Check if date is too far in the past (optional - API limitations)
         if (model.Date < DateTime.Today.AddYears(-10))
         {
             validationMessage = "Date cannot be more than 10 years in the past.";
             return false;
-        }
+        } *@
 
+        // Future date validation
+if (model.Date > DateTime.Today)
+{
+    validationMessage = "Date cannot be in the future.";
+    return false;
+}
+
+// Allow only dates from 1990 onwards
+if (model.Date < new DateTime(1990, 1, 1))
+{
+    validationMessage = "Date must be from 1990 onwards.";
+    return false;
+}
+
+
+        //Same currency validation
         if (string.IsNullOrWhiteSpace(model.BaseCurrency) || string.IsNullOrWhiteSpace(model.TargetCurrency))
         {
             validationMessage = "Please select both base and target currencies.";

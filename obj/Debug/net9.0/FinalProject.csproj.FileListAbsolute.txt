@@ -158,3 +158,4 @@ C:\xampp\htdocs\sherard\new-convert\obj\Debug\net9.0\refint\FinalProject.dll
 C:\xampp\htdocs\sherard\new-convert\obj\Debug\net9.0\FinalProject.pdb
 C:\xampp\htdocs\sherard\new-convert\obj\Debug\net9.0\FinalProject.genruntimeconfig.cache
 C:\xampp\htdocs\sherard\new-convert\obj\Debug\net9.0\ref\FinalProject.dll
+C:\xampp\htdocs\sherard\new-convert\obj\Debug\net9.0\FinalProject.sourcelink.json
