@@ -39,8 +39,21 @@
                 </div>
                 
                 <div class="conversion-row">
-                    <span class="conversion-label">Exchange Rate:</span>
-                    <span class="conversion-value">1 @BaseCurrency = @((Rate / Amount).ToString("N4")) @TargetCurrency</span>
+                    <span class="conversion-value">
+    1 @BaseCurrency =
+    @{
+        if (Amount != 0)
+        {
+            <text>@(Rate / Amount).ToString("N4")</text>
+        }
+        else
+        {
+            <text>N/A</text>
+        }
+    }
+    @TargetCurrency
+</span>
+
                 </div>
                 
                 <div class="conversion-row">
